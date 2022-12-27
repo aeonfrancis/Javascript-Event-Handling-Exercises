@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sticky Note</title>
+    <style>
+      .note {
+        width: 200px;
+        height: 100px;
+        margin-bottom: 20px;
+      }
+      #note_container {
+        text-align: center;
+        width: 200px;
+        height: 100px;
+      }
+      p {
+        padding-top: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" id="input" placeholder="text here" />
+    <button id="submit">Add</button>
+    <div id="note_container"></div>
+
+    <script>
+      const input = document.getElementById("input");
+      const container = document.getElementById("note_container");
+
+      function add_note() {
+        const note = document.createElement("div");
+        const text = document.createElement("p");
+        text.innerText = input.value;
+
+        note.classList.add("note");
+        container.appendChild(note);
+        note.appendChild(text);
+        let x = Math.floor(Math.random() * 256);
+        let y = Math.floor(Math.random() * 256);
+        let z = Math.floor(Math.random() * 256);
+        let bgColor = "rgb(" + x + "," + y + "," + z + ")";
+
+        note.style.backgroundColor = bgColor;
+      }
+
+      const button = document.getElementById("submit");
+      button.addEventListener("click", add_note);
+    </script>
+  </body>
+</html>

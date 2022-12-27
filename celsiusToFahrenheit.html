@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Celsius to Fahrenheit Converter</title>
+    <style>
+      div {
+        text-align: center;
+        width: 200px;
+        height: 100px;
+        border: 1px solid black;
+        margin: 10px;
+      }
+      p {
+        padding-top: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" id="input" placeholder="enter number in °C" />
+    <button id="submit">convert</button>
+    <div id="container"><p id="result">result in °F</p></div>
+
+    <script>
+      const input = document.getElementById("input");
+      const answer = document.getElementById("result");
+      function convert() {
+        answer.innerText = (input.value * 9) / 5 + 32 + " °F";
+      }
+
+      function clr(){
+        input.value = "";
+      }
+
+      const button = document.getElementById("submit");
+      button.addEventListener("click", convert);
+      input.addEventListener("click",clr);
+    </script>
+
+  </body>
+</html>
